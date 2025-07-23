@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  hello-app:
+    image: hello-world-app:1.0
+    build: .
+    container_name: hello-world-app-container
