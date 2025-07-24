@@ -191,7 +191,7 @@ hello-world-app/
 │── docker-compose.yml
 ├── k8s/
 │   ├── deployment.yaml
-│   └── service.yaml
+│   
 └── helm/
     ├── Chart.yaml
     ├── values.yaml
