@@ -5,6 +5,26 @@
 This documentation provides a comprehensive guide to deploying a basic AWS infrastructure using Terraform. This setup is designed for both technical and non-technical users who wish to automate the deployment of a web application infrastructure. The deployment includes an Amazon VPC, EC2 instances, RDS, S3 buckets, IAM roles, and other necessary resources.
 
 ## Overview
+  terraform-aws-infra/
+├── modules/
+│   ├── networking/
+│   │   ├── main.tf
+│   │   ├── output.tf
+│   │   ├── variables.tf
+│   ├── security/
+│   │   ├── main.tf
+│   │   ├── output.tf
+│   │   ├── variables.tf
+│   ├── storage/
+│   │   ├── main.tf
+│   │   ├── output.tf
+│   │   ├── variables.tf
+│
+├── main.tf            # Calls the modules
+├── variables.tf       # Root variables (if any)
+├── outputs.tf         # Root outputs
+├── versions.tf        # Provider and Terraform version info
+
 
 ### Description
 
@@ -105,13 +125,106 @@ A summary of resources created by this configuration:
 * **Cost:** Be aware of AWS costs associated with running resources; terminate the environment if not in use.
 * **Security:** Consider customizing security groups and IAM policies to better fit your security requirements.
 
-Exercise 2: 
-# Hello World Java App with Jenkins CI/CD Pipeline
 
+
+# 🚀 Exercise 2: Java Application with CI/CD Pipeline
 This is a simple Java Maven app with a Jenkins pipeline to build, test and deploy.
 
-## How to build locally
+This project demonstrates a Java web application with an automated CI/CD pipeline using GitHub Actions. The pipeline handles build, test, and deployment across three environments: **Dev**, **Test**, and **Staging (STG)**.
 
-```bash
-mvn clean package
-java -jar target/hello-world-app-1.0-SNAPSHOT.jar
+
+hello-world-app/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │      └── com/
+│   │          └── example/
+│   │              └── demo/
+│   │                 └── HelloWorldApp.java
+│   │  
+│   ── application.properties
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── example/
+│                   └── demo/
+│                       └── HelloWorldAppTest.java
+├── pom.xml
+├── Jenkinsfile
+├── README.md
+
+
+---
+
+## Tasks Overview
+
+1. **Java Application**: Develop or use an existing Java project.
+2. **GitHub Setup**: Push the project to GitHub with `develop` and `master` branches.
+3. **CI/CD Pipeline**: Use GitHub Actions to:
+   - Deploy to **Dev** on any push to `develop`.
+   - Deploy to **Test** only if Dev deployment succeeds.
+   - Deploy to **STG** only when merging to `master`.
+4. **Branch Protection**: Protect the `master` branch (merge allowed by owners only).
+5. **Documentation**: Include separate README files for the application and CI/CD process.
+
+---
+
+## Deliverables
+
+- GitHub repository link  
+- CI/CD pipeline config (`.github/workflows/`)  
+- Two merge requests:
+  - Feature → `develop`
+  - `develop` → `master`  
+- This README.md
+
+
+
+
+# 🚀 Exercise 3: Containerize and Deploy Java Application
+
+This exercise demonstrates how to containerize a Java application, orchestrate it using Docker Compose, and deploy it to a Kubernetes cluster.
+
+
+hello-world-app/
+├── Dockerfile
+│── docker-compose.yml
+├── k8s/
+│   ├── deployment.yaml
+│   └── service.yaml
+└── helm/
+    ├── Chart.yaml
+    ├── values.yaml
+    └── templates/
+        ├── deployment.yaml
+        ├── service.yaml
+        └── ingress.yaml
+
+---
+
+## Step 1: Dockerize the Application
+
+We create a `Dockerfile` to package the Java application into a Docker image, making it portable and easy to run in any environment.
+
+---
+
+## Step 2: Docker Compose Setup
+
+We define a `docker-compose.yml` file to run the Java app along with its dependencies (e.g., PostgreSQL) locally using a single command.
+
+---
+
+## Step 3: Kubernetes Deployment
+
+We prepare deployment files (`YAML` or `Helm chart`) to deploy the containerized application to a Kubernetes cluster for scalability and reliability.
+
+---
+
+## Deliverables
+
+- ✅ Dockerfile  
+- ✅ docker-compose.yml  
+- ✅ Kubernetes YAML files or Helm chart  
+- ✅ This README.md
+
+
