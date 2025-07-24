@@ -207,18 +207,40 @@ hello-world-app/
 We create a `Dockerfile` to package the Java application into a Docker image, making it portable and easy to run in any environment.
 
 ---
+🛠 Build & Run
+
+mvn clean package
+docker build -t java-app .
+docker run -p 8080:8080 java-app
+
 
 ## Step 2: Docker Compose Setup
 
 We define a `docker-compose.yml` file to run the Java app along with its dependencies (e.g., PostgreSQL) locally using a single command.
 
 ---
+🛠 Run  Compose
+
+docker-compose up --build
+
 
 ## Step 3: Kubernetes Deployment
 
 We prepare deployment files (`YAML` or `Helm chart`) to deploy the containerized application to a Kubernetes cluster for scalability and reliability.
 
 ---
+
+📁 Files
+   deployment.yaml – Deploys app container
+   service.yaml – Exposes app via NodePort
+   postgres.yaml – Runs PostgreSQL in a pod 
+
+🛠 Run  Compose
+
+kubectl apply -f postgres.yaml
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+
 
 ## Deliverables
 
