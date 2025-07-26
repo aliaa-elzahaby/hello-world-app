@@ -167,6 +167,32 @@ hello-world-app/
 4. **Branch Protection**: Protect the `master` branch (merge allowed by owners only).
 5. **Documentation**: Include separate README files for the application and CI/CD process.
 
+
+
+---
+
+# Initialize Git repository
+git init
+
+# Add all files
+git add .
+
+# Commit initial files
+git commit -m "Initial commit with HelloWorld application"
+
+# Create GitHub repository (do this on github.com first)
+# Replace with your actual GitHub username
+git remote add origin https://github.com/aliaa-elzahaby/hello-world-app.git
+
+# Create and push branches
+git branch -M main
+git push -u origin main
+
+# Create develop branch
+git checkout -b develop
+git push -u origin develop
+
+
 ---
 
 ## Deliverables
